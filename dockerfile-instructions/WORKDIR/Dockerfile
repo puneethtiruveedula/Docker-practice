@@ -12,3 +12,4 @@ WORKDIR dir2
 WORKDIR dir3
 
 ENTRYPOINT [ "pwd" ]
+CMD ["sleep","100"]
