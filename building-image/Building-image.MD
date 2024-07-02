@@ -31,6 +31,11 @@ Create this Dockerfile in a local directory and then build this into a Docker im
 ```
 docker build .
 ```
+```
+docker build -t <name:tag> .
+```
+> The -t option specifies the name and tag of the image. The format of the tag is :. 
+
 The CLI will search for a Dockerfile in the current directory because of the . (period) at the end of the command. If it finds a Dockerfile, it will build an image Refer to the below log:
 
 ![alt text](image.png)
