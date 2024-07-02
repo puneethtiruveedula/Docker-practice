@@ -54,3 +54,38 @@ Here the executable is provided by the ENTRYPOINT instruction and CMD only provi
 > CMD - only executes at the time of container creation i.e docker run
 
 ## ENTRYPOINT
+
+The ENTRYPOINT instruction in a Dockerfile specifies the command that should be executed when the container is started, just like CMD. However, unlike CMD, ENTRYPOINT is an executable command itself and it cannot be overridden or ignored even if user try to pass command line arguments.
+
+There are two ways to specify the ENTRYPOINT instruction in a Dockerfile:
+
+* Exec form: This specifies the command to be executed as an array of arguments, with the executable name as the first argument.
+
+```
+ENTRYPOINT ["executable", "arg1", "arg2"]
+```
+
+* Shell form specifies the command to be executed as a single string, with the command and arguments separated by spaces.
+
+```
+ENTRYPOINT command arg1 arg2
+```
+
+## Differences between CMD & ENTRYPOINT
+These are used to specify programs that execute when a container starts, but the major differences between the two are - CMD commands are ignored by Daemon when there are parameters stated within the docker run command while ENTRYPOINT instructions are not ignored but instead are appended as command line parameters by treating those as arguments of the command.
+
+#### Execute the following command to override the ENTRYPOINT
+
+```
+docker run --entrypoint “command-to-override” image-name
+```
+
+### ENTRYPOINT with CMD
+Usually it’s a good practice to use ENTRYPOINT for the main command and CMD for optional arguments. This allows users to customize the container’s behavior by passing additional arguments, while ensuring that the main command is always executed.
+
+```
+FROM ubuntu
+ENTRYPOINT [“echo”, “Hello”]
+CMD ["World"]
+```
+When you state a command in docker run it will override CMD only and gets appended .
