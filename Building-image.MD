@@ -5,4 +5,5 @@ Once we have this file created and set up, the docker CLI can then use this file
 
 ### Format of Dockerfile instructions
 Each line in the Dockerfile build instruction will look something like this:
-* ```INSTRUCTION <arguments>```
+
+```INSTRUCTION <arguments>```
