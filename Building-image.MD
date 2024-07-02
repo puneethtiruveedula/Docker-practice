@@ -1,1 +1,2 @@
 # Building a simple image using Dockerfile
+To build our own Docker images, we need to instruct the Docker CLI on how to build it. To achieve this, we must create a specific file with all the instructions. It is called the Dockerfile. The Dockerfile is a text file with no extension of any sort. It is simply named “Dockerfile”.
