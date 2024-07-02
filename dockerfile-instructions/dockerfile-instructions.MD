@@ -89,3 +89,5 @@ ENTRYPOINT [“echo”, “Hello”]
 CMD ["World"]
 ```
 When you state a command in docker run it will override CMD only and gets appended .
+
+## WORKDIR
