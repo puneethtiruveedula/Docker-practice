@@ -151,3 +151,23 @@ but `ADD` have two extra advantages
 1. it can directly download the content from internet into the image
 2. it can directly untart the files into the image.
 
+## LABEL
+Label keyword is used to add metadata to docker objects such as images, containers, local daemons, volumes, networks, swarm nodes, and swarm services.
+
+Labels are key-value pairs stored as a string that can be used to organize your images, add licensing information, etc. We can add multiple labels to a docker object.
+
+```
+FROM ubuntu:14.04
+LABEL name="learning-ocean"
+LABEL email="[email protected]"
+```
+
+```
+docker image build -t myubuntu:10 .
+```
+
+To check if the labels are added or not, we will use the following command:
+
+```
+docker image inspect myubuntu:10 | less
+```
