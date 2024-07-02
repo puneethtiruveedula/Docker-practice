@@ -7,3 +7,7 @@ Once we have this file created and set up, the docker CLI can then use this file
 Each line in the Dockerfile build instruction will look something like this:
 
 ```INSTRUCTION <arguments>```
+
+The instruction is not case-sensitive and contains the Build command. The arguments will follow this instruction. Example ```FROM alpine```
+
+Every Dockerfile begins with a `FROM` instruction barring some exceptions which we will discuss later.
