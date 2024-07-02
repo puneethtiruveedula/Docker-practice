@@ -41,9 +41,9 @@ ARG version
 FROM almalinux:${version:-8}
 ```
 
-> If we don't declare `ARG` value in build in command then it takes default value.
+_If we don't declare `ARG` value in build in command then it takes default value._
 
-> You can always have default values to arg and override if required.
+_You can always have default values to arg and override if required._
 
 ### Defining multiple docker arguments
 In Dockerfile, we can define multiple build arguments with multiple `ARG` commands like
