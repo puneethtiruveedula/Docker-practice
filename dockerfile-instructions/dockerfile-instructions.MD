@@ -50,6 +50,7 @@ Here the executable is provided by the ENTRYPOINT instruction and CMD only provi
 ## RUN vs CMD
 
 > RUN - executes at build time means image creation time
+
 > CMD - only executes at the time of container creation i.e docker run
 
 ## ENTRYPOINT
