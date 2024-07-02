@@ -1,0 +1,7 @@
+FROM alpine
+
+WORKDIR /dir1
+WORKDIR dir2
+WORKDIR dir3
+
+ENTRYPOINT [ "pwd" ]

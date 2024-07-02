@@ -91,3 +91,12 @@ CMD ["World"]
 When you state a command in docker run it will override CMD only and gets appended .
 
 ## WORKDIR
+The `WORKDIR` Docker instruction is used to set the working directory for any subsequent instructions within a Dockerfile. By specifying a directory path as an argument to WORKDIR, you define the location where commands like `RUN`, `COPY`, and `ADD` will be executed. If the directory doesn't exist, `WORKDIR` will create it.This instruction is valuable for improving code readability, maintaining a structured file hierarchy, and ensuring that container operations are conducted in the intended directory, enhancing Dockerfile clarity and maintainability.
+
+The syntax is very simple:
+
+```
+WORKDIR /path/to/workdir
+```
+
+If you run multiple `WORKDIR` instructions, the final working directory will be the result of every `WORKDIR` instruction combined.
