@@ -100,3 +100,12 @@ WORKDIR /path/to/workdir
 ```
 
 If you run multiple `WORKDIR` instructions, the final working directory will be the result of every `WORKDIR` instruction combined.
+
+```
+WORKDIR /dir1
+WORKDIR dir2
+WORKDIR dir3
+ENTRYPOINT [ "pwd" ]
+```
+
+the output of the pwd command will be /dir1/dir2/dir3
