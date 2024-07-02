@@ -10,5 +10,5 @@ FROM almalinux:9
 WORKDIR /dir1
 WORKDIR dir2
 WORKDIR dir3
-ENTRYPOINT [ "pwd" ]
+RUN pwd
 CMD ["sleep","100"]
