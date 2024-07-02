@@ -6,21 +6,23 @@ Once we have this file created and set up, the docker CLI can then use this file
 ### Format of Dockerfile instructions
 Each line in the Dockerfile build instruction will look something like this:
 
-> ```INSTRUCTION <arguments>```
+ ```
+ INSTRUCTION <arguments>
+ ```
 
 The instruction is not case-sensitive and contains the Build command. The arguments will follow this instruction. Example ```FROM alpine```
 
 Every Dockerfile begins with a `FROM` instruction barring some exceptions which we will discuss later.
 
 ### Adding comments in the Dockerfile
-You can also add comments to the file using a `#` symbol. Example of a comment`#This is a comment`
+You can also add comments to the file using a `#` symbol. Example of a comment `#This is a comment`
 
 Comments are removed from the execution during a preprocessing step before the builder instructions are executed.
 
 ### Example 1: A simple Dockerfile looks something like this:
 
 ```
-#This is the Hello World Dockerfile`
+#This is the Hello World Dockerfile
 FROM alpine`
 CMD ["echo", "Hello World"]
 ```
