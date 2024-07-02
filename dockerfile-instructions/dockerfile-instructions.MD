@@ -109,3 +109,44 @@ ENTRYPOINT [ "pwd" ]
 ```
 
 the output of the pwd command will be /dir1/dir2/dir3
+
+## COPY
+The `COPY` Docker instruction facilitates the copying of files and directories from the host machine into a Docker image during the build process. It requires two arguments: the source path (relative to the context of the build) and the destination path within the image. This instruction is useful for incorporating application code, configuration files, and other assets into the image. `COPY` solely deals with file system content and doesn't perform URL retrieval or unpacking. It helps maintain a more straightforward and predictable image construction process, enhancing Dockerfile clarity and reproducibility.
+
+The syntax is simple:
+
+```
+COPY <src>... <dest>
+```
+
+Multiple source paths can be given and they all work as relative paths under the build context.
+
+If the paths have whitespaces, an alternative method can be used :
+
+```
+COPY ["<src>",... "<dest>"]
+```
+
+wildcard characters like * and ? can be used in the source paths to match the file names.
+
+```
+COPY resource-* /resources/
+COPY resource-x? /resources/
+```
+
+If a `WORKDIR` instruction is been added before the `COPY` instruction, the destination path will be relative to the `WORKDIR` directory.
+
+## ADD
+The `ADD` Docker instruction serves to incorporate files and directories from the build context or remote URLs into a Docker image during construction. It functions similarly to the `COPY` instruction but includes additional capabilities like unpacking compressed files and fetching remote resources. While versatile, caution should be exercised with `ADD` as it might lead to unexpected behaviours when dealing with URLs. For simpler file copying, `COPY` is generally preferred. Utilize `ADD` when the advanced features it offers are necessary, such as when dealing with compressed archives or web content retrieval.
+
+The syntax for `ADD`is similar to `COPY` and follows similar use of wildcards. Additionally, remote paths like Git repositories and archive files can be provided as the source path.
+
+```
+ADD ["<src>",... "<dest>"]
+```
+
+## COPY vs ADD
+`COPY` and `ADD` both are to copy the files from workspace to docker image.
+but `ADD` have two extra advantages
+1. it can directly download the content from internet into the image
+2. it can directly untart the files into the image.
