@@ -41,7 +41,9 @@ ARG version
 FROM almalinux:${version:-8}
 ```
 
-If we don't declare `ARG` value in build in command then it takes default value./
+> If we don't declare `ARG` value in build in command then it takes default value.
+
+> You can always have default values to arg and override if required.
 
 ### Defining multiple docker arguments
 In Dockerfile, we can define multiple build arguments with multiple `ARG` commands like
@@ -247,3 +249,8 @@ Here we are populating the working directory inside the docker image using the b
 * Build arguments and the environment variable both provides a level of flexibility but at different phases. We cannot replace one with another, in fact, we can use them together to get higher flexibility.
 * Build arguments works on the BUILD phase, it has no impact on the RUN phase of docker whereas the ENV can be used at both phases. Environment variables declared in Dockerfile are available at both the phases but environment variables declared in the environment file or passed in the RUN command are available at only the RUN phase.
 * Build arguments cannot be used in the application code to be containerized, but we can use environment variables in the application code.
+
+## ENV vs ARG
+1. ENV variables can be accessed both at the build time and containers.
+2. ARG instruction can only be accessed at the time of build or image.
+
