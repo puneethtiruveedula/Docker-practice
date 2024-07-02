@@ -32,9 +32,11 @@ Create this Dockerfile in a local directory and then build this into a Docker im
 docker build .
 ```
 The CLI will search for a Dockerfile in the current directory because of the . (period) at the end of the command. If it finds a Dockerfile, it will build an image Refer to the below log:
+
 ![alt text](image.png)
 
 Refer to the last line, the string is the ID we can use to refer to the image. Let's try to run a container using this ID.
+
 ![alt text](image-1.png)
 
 You can see that the startup command has been executed and has printed the “Hello World” message on the console.
@@ -65,12 +67,16 @@ The next instruction that follows is `CMD ["echo", "Hello World"]` where `CMD` i
 The docker daemon runs the Dockerfile line by line. Hence committing the output of every step into a new image. Except for the very first step, every consecutive step will create a container instance using the image from the previous step and execute the instruction, resulting in a final image which becomes the output of the Dockerfile build process. These images in the intermediate steps are known as layers.
 
 Let's create a more complex image.Let's use the Redis image to create containers using `docker run redis`. Let us try to create our own Redis image.
+
+### Example 2: Multi-layer Dockerfile
+Paste the following lines into a Dockerfile and build it:
 ```
 FROM alpine
 RUN apk add --update redis
 CMD ["redis-server"]
 ```
 The output should look something like this after you build and create a container from the resulting image.
+
 ![alt text](image-2.png)
 
 You notice that the container is running the redis-server command and is ready to accept new connections.
