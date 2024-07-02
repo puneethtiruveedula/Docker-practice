@@ -19,6 +19,8 @@ Comments are removed from the execution during a preprocessing step before the b
 
 ### Example 1: A simple Dockerfile looks something like this:
 
-`#This is the Hello World Dockerfile`
-`FROM alpine`
-`CMD ["echo", "Hello World"]`
+```
+#This is the Hello World Dockerfile`
+FROM alpine`
+CMD ["echo", "Hello World"]
+```
