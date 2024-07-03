@@ -171,3 +171,16 @@ To check if the labels are added or not, we will use the following command:
 ```
 docker image inspect myubuntu:10 | less
 ```
+
+## ONBUILD
+If your image is reusable application  or you have customized as per your need application environment image. Which you want to share across application development teams.
+
+`ONBUILD` is useful as a trigger, if some one is trying to use your image. you can force them to keep somefiles in their workspace or some configuration
+
+
+## How does ONBUILD work?
+
+- When it encounters an ONBUILD instruction, the builder adds a trigger to the metadata of the image being built. The instruction does not otherwise affect the current build.
+- At the end of the build, a list of all triggers is stored in the image manifest, under the key OnBuild. They can be inspected with the docker inspect command.
+- Later the image may be used as a base for a new build, using the FROM instruction. As part of processing the FROM instruction, the downstream builder looks for ONBUILD triggers, and executes them in the same order they were registered. If any of the triggers fail, the FROM instruction is aborted which in turn causes the build to fail. If all triggers succeed, the FROM instruction completes and the build continues as usual.
+- Triggers are cleared from the final image after being executed. In other words they are not inherited by “grand-children” builds.
