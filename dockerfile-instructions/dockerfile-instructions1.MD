@@ -177,6 +177,7 @@ If your image is reusable application  or you have customized as per your need a
 
 `ONBUILD` is useful as a trigger, if some one is trying to use your image. you can force them to keep somefiles in their workspace or some configuration
 
+> `ONBUILD` add a trigger instruction to the image that will be executed when the image is used as a base image for another build.
 
 ## How does ONBUILD work?
 
