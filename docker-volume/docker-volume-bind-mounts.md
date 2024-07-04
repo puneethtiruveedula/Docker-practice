@@ -39,7 +39,7 @@ Example of Usage of Volumes (Named Volumes)
 
 I have a simple Node.js application to get user `feedback` and store it as a `.txt` file in a folder named ‘`feedback`’. After saving the `.txt file`, user can see the file using `/feedback/FILE_NAME.txt path`.
 
-![alt text](image-2.png)
+![Docker-practice/docker-volume/images/image-2.png](images/image-2.png)
 
 
 ### Dockerfile
@@ -111,32 +111,32 @@ I built the Docker image with a tag called feedback-img.
 docker build -t feedback-img .
 ```
 
-![alt text](image-3.png)
+![Docker-practice/docker-volume/images/image-3.png](images/image-3.png)
 
 Now I am going to run this application as the usual way we run the Docker container.
 
 ```
 docker run -p 3000:8000 — name feedback-app — rm -d feedback-img
 ```
-![alt text](image-4.png)
+![Docker-practice/docker-volume/images/image-4.png](images/image-4.png)
 
 This is the application running inside the container. Now I can provide feedback, and it will be saved inside the `feedback` directory.
 
-![alt text](image-5.png)
+![Docker-practice/docker-volume/images/image-5.png](images/image-5.png)
 
 Using `/feedback/hello_world.txt`, I can access the feedback I provided.
 
-![alt text](image-6.png)
+![Docker-practice/docker-volume/images/image-6.png](images/image-6.png)
 
 As you can see, there is no issue. We can access the written `.txt` file without any problem.
 
 Now I am going to stop the running container and run a container again using the same image we built before.
 
-![alt text](image-7.png)
+![Docker-practice/docker-volume/images/image-7.png](images/image-7.png)
 
 Theoretically, I should be able to access my `hello_world.txt` file again, since it was a record we previously entered and should not be deleted.
 
-![alt text](image-8.png)
+![Docker-practice/docker-volume/images/image-8.png](images/image-8.png)
 
 But there is `no hello_world.txt` file in our feedback directory. This is where volumes come into play.
 
@@ -154,9 +154,9 @@ The reason to use the `/app/feedback` path inside the container is that we use `
 
 Now when I give the same feedback again as hello_world.txt, even when I stop and start a container again, the given feedback is still there.
 
-![alt text](image-9.png)
+![Docker-practice/docker-volume/images/image-9.png](images/image-9.png)
 
-![alt text](image-10.png)
+![Docker-practice/docker-volume/images/image-10.png](images/image-10.png)
 
 You can always inspect Volumes by running this command:
 
@@ -164,7 +164,7 @@ You can always inspect Volumes by running this command:
 docker volume ls
 ```
 
-![alt text](image-11.png)
+![Docker-practice/docker-volume/images/image-11.png](images/image-11.png)
 
 
 ## Bind Mounts
@@ -204,7 +204,7 @@ Instead of using the absolute path here, you can also use these:
 
 But when I run the above command, the container automatically stops. When I check Docker logs, these are the logs:
 
-![alt text](image-12.png)
+![Docker-practice/docker-volume/images/image-12.png](images/image-12.png)
 
 As you can see, it’s telling that it can’t find the nodemon module inside it. The reason behind it is this:
 

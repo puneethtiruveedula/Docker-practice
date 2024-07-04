@@ -38,11 +38,11 @@ docker build -t <name:tag> .
 
 The CLI will search for a Dockerfile in the current directory because of the . (period) at the end of the command. If it finds a Dockerfile, it will build an image Refer to the below log:
 
-![alt text](image.png)
+![Docker-practice/building-image/images/image.png](images/image.png)
 
 Refer to the last line, the string is the ID we can use to refer to the image. Let's try to run a container using this ID.
 
-![alt text](image-1.png)
+![Docker-practice/building-image/images/image-1.png](images/image-1.png)
 
 You can see that the startup command has been executed and has printed the “Hello World” message on the console.
 
@@ -82,6 +82,6 @@ CMD ["redis-server"]
 ```
 The output should look something like this after you build and create a container from the resulting image.
 
-![alt text](image-2.png)
+![Docker-practice/building-image/images/image-2.png](images/image-2.png)
 
 You notice that the container is running the redis-server command and is ready to accept new connections.

@@ -40,7 +40,7 @@ Volumes are the preferred way to persist data in Docker containers and services.
 
 * When your application requires fully native file system behavior on Docker Desktop. For example, a database engine requires precise control over disk flushing to guarantee transaction durability. Volumes are stored in the Linux VM and can make these guarantees, whereas bind mounts are remoted to macOS or Windows, where the file systems behave slightly differently.
 
-![alt text](image-1.png)
+![Docker-practice/docker-volume/images/image-1.png](images/image-1.png)
 
 If your container generates non-persistent state data, consider using a tmpfs mount to avoid storing the data anywhere permanently, and to increase the container’s performance by avoiding writing into the container’s writable layer.
 
